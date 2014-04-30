@@ -6,22 +6,27 @@ package org.jcodegen.html.xmlbase;
 public class ValueXMLAttribute extends XMLAttribute {
 
     public final String value;
+    public final boolean useSingleQuotes;
 
     public ValueXMLAttribute(final String name, final String value) {
+        this(name, value, false);
+    }
+
+    public ValueXMLAttribute(final String name, final String value, final boolean useSingleQuotes) {
         super(name);
         this.value = value;
+        this.useSingleQuotes = useSingleQuotes;
     }
 
     @Override
     public String toString() {
-        final StringBuilder buf = new StringBuilder();
+        return " " + name + "=" + getQuotedValue();
+    }
 
-        buf.append(" ");
-        buf.append(name);
-        buf.append("=\"");
-        buf.append(value);
-        buf.append("\"");
+    private String getQuotedValue() {
+        if (useSingleQuotes)
+            return "'" + value + "'";
 
-        return buf.toString();
+        return "\"" + value + "\"";
     }
 }

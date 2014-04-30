@@ -67,6 +67,11 @@ public abstract class Tag <T extends Tag<T>> {
         return getThis();
     }
 
+    public T singleQuotedAttribute(final String name, final String value) {
+        element.addAttribute(new ValueXMLAttribute(name, value, true));
+        return getThis();
+    }
+
 
     protected T child(final Tag tag) {
         element.addChild(tag.element);
