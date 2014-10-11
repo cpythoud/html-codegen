@@ -11,6 +11,10 @@ public class LiTag extends Tag<LiTag> {
         element = new XMLElement("li", false);
     }
 
+    public LiTag(final String body) {
+        element = new XMLElement("li", body, false);
+    }
+
     @Override
     protected LiTag getThis() {
         return this;
