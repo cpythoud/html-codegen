@@ -11,6 +11,10 @@ public class LabelTag extends Tag<LabelTag> {
         element = new XMLElement("label", false);
     }
 
+    public LabelTag(final String body) {
+        element = new XMLElement("label", body, false);
+    }
+
     public LabelTag(final String body, final String formElementId) {
         element = new XMLElement("label", body, false);
         forAttr(formElementId);
