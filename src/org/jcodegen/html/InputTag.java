@@ -152,4 +152,8 @@ public class InputTag extends FormElement<InputTag> {
     public InputTag value(final String value) {
         return attribute("value", value);
     }
+
+    public InputTag placeholder(final String value) {
+        return attribute("placeholder", value);
+    }
 }
