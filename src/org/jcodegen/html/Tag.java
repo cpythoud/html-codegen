@@ -72,12 +72,12 @@ public abstract class Tag <T extends Tag<T>> {
     }
 
     public T attribute(final String name, final String value) {
-        element.addAttribute(new ValueXMLAttribute(name, value));
+        element.addAttribute(new ValueXMLAttribute(name, value != null ? value : ""));
         return getThis();
     }
 
     public T singleQuotedAttribute(final String name, final String value) {
-        element.addAttribute(new ValueXMLAttribute(name, value, true));
+        element.addAttribute(new ValueXMLAttribute(name, value != null ? value : "", true));
         return getThis();
     }
 
