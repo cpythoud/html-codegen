@@ -33,6 +33,11 @@ public abstract class Tag <T extends Tag<T>> {
         return attribute("class", value);
     }
 
+    public T changeCssClasses(final String value) {
+        element.replaceAttribute("class", new ValueXMLAttribute("class", value));
+        return getThis();
+    }
+
     public T title(final String value) {
         return attribute("title", value);
     }

@@ -70,10 +70,37 @@ public class XMLElement extends CodeBlock {
     }
 
     public void addAttribute(final XMLAttribute attribute) {
-        if (attributeDefined(attribute.name))
+        if (hasAttribute(attribute.name))
             throw new IllegalArgumentException("XMLAttribute already defined");
 
         attributes.add(attribute);
+    }
+
+    public boolean hasAttribute(final String name) {
+        for (XMLAttribute attribute: attributes)
+            if (attribute.name.equals(name))
+                return true;
+
+        return false;
+    }
+
+    public void removeAttribute(final String name) {
+        if (!hasAttribute(name))
+            throw new IllegalArgumentException("Element doesn't have attribute: " + name);
+
+        for (XMLAttribute attribute: attributes)
+            if (attribute.name.equals(name)) {
+                attributes.remove(attribute);
+                break;
+            }
+    }
+
+    public void replaceAttribute(final String name, final XMLAttribute attribute) {
+        if (!attribute.name.equals(name))
+            throw new IllegalArgumentException("Name of replacement attribute (" + attribute.name + ") does not match name of replaced attribute (" + name + ")");
+
+        removeAttribute(name);
+        addAttribute(attribute);
     }
 
     public void addChild(final XMLElement child) {
@@ -176,13 +203,5 @@ public class XMLElement extends CodeBlock {
             throw new IllegalArgumentException("No opening tag for CDATA");
 
         return "</" + name + ">";
-    }
-
-    private boolean attributeDefined(final String name) {
-        for (XMLAttribute attribute: attributes)
-            if (attribute.name.equals(name))
-                return true;
-
-        return false;
     }
 }
