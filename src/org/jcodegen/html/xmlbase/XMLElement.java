@@ -65,7 +65,7 @@ public class XMLElement extends CodeBlock {
     }
 
     public void setOnOneLine(final boolean onOneLine) {
-        System.out.println("On one line : " + name);
+        //System.out.println("On one line : " + name);
         this.onOneLine = onOneLine;
     }
 
