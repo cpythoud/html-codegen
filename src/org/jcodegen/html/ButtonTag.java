@@ -53,6 +53,16 @@ public class ButtonTag extends FormElement<ButtonTag> {
         return this;
     }
 
+    @Override
+    public ButtonTag child(final Tag tag) {
+        return super.child(tag);
+    }
+
+    @Override
+    public ButtonTag addCodeFragment(final HtmlCodeFragment codeFragment) {
+        return super.addCodeFragment(codeFragment);
+    }
+
     public ButtonTag type(final ButtonType value) {
         return attribute("type", value.getVal());
     }
