@@ -66,6 +66,10 @@ public abstract class Tag <T extends Tag<T>> {
         return attribute("role", value);
     }
 
+    public T data(final String name, final String value) {
+        return attribute("data-" + name, value);
+    }
+
     public T attribute(final String name) {
         element.addAttribute(new BooleanXMLAttribute(name));
         return getThis();
