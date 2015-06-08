@@ -20,7 +20,7 @@ public class LiTag extends Tag<LiTag> {
         return this;
     }
 
-    @Override
+    /*@Override
     public LiTag child(final Tag tag) {
         return super.child(tag);
     }
@@ -28,7 +28,7 @@ public class LiTag extends Tag<LiTag> {
     @Override
     public LiTag addCodeFragment(final HtmlCodeFragment codeFragment) {
         return super.addCodeFragment(codeFragment);
-    }
+    }*/
 
     public LiTag value(final int value) {  // only if li is child of ol
         return attribute("value", Integer.toString(value));

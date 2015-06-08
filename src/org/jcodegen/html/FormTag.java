@@ -47,7 +47,7 @@ public class FormTag extends Tag<FormTag> {
         return this;
     }
 
-    @Override
+    /*@Override
     public FormTag child(final Tag tag) {
         return super.child(tag);
     }
@@ -55,7 +55,7 @@ public class FormTag extends Tag<FormTag> {
     @Override
     public FormTag addCodeFragment(final HtmlCodeFragment codeFragment) {
         return super.addCodeFragment(codeFragment);
-    }
+    }*/
 
     public FormTag acceptCharset(final String value) {
         return attribute("accept-charset", value);

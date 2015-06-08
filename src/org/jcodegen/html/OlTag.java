@@ -16,7 +16,7 @@ public class OlTag extends Tag<OlTag> {
         return this;
     }
 
-    @Override
+    /*@Override
     public OlTag child(final Tag tag) {
         return super.child(tag);
     }
@@ -24,5 +24,5 @@ public class OlTag extends Tag<OlTag> {
     @Override
     public OlTag addCodeFragment(final HtmlCodeFragment codeFragment) {
         return super.addCodeFragment(codeFragment);
-    }
+    }*/
 }

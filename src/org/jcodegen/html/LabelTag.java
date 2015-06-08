@@ -25,7 +25,7 @@ public class LabelTag extends Tag<LabelTag> {
         return this;
     }
 
-    @Override
+    /*@Override
     public LabelTag child(final Tag tag) {
         return super.child(tag);
     }
@@ -33,7 +33,7 @@ public class LabelTag extends Tag<LabelTag> {
     @Override
     public LabelTag addCodeFragment(final HtmlCodeFragment codeFragment) {
         return super.addCodeFragment(codeFragment);
-    }
+    }*/
 
     public LabelTag forAttr(final String val) {
         return attribute("for", val);

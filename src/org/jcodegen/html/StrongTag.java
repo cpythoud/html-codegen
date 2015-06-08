@@ -20,7 +20,7 @@ public class StrongTag extends Tag<StrongTag> {
         return this;
     }
 
-    @Override
+    /*@Override
     public StrongTag child(final Tag tag) {
         return super.child(tag);
     }
@@ -28,5 +28,5 @@ public class StrongTag extends Tag<StrongTag> {
     @Override
     public StrongTag addCodeFragment(final HtmlCodeFragment codeFragment) {
         return super.addCodeFragment(codeFragment);
-    }
+    }*/
 }

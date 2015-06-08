@@ -16,7 +16,7 @@ public class UlTag extends Tag<UlTag> {
         return this;
     }
 
-    @Override
+    /*@Override
     public UlTag child(final Tag tag) {
         return super.child(tag);
     }
@@ -24,5 +24,5 @@ public class UlTag extends Tag<UlTag> {
     @Override
     public UlTag addCodeFragment(final HtmlCodeFragment codeFragment) {
         return super.addCodeFragment(codeFragment);
-    }
+    }*/
 }

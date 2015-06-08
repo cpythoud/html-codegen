@@ -20,7 +20,7 @@ public class PTag extends Tag<PTag> {
         return this;
     }
 
-    @Override
+    /*@Override
     public PTag child(final Tag tag) {
         return super.child(tag);
     }
@@ -28,5 +28,5 @@ public class PTag extends Tag<PTag> {
     @Override
     public PTag addCodeFragment(final HtmlCodeFragment codeFragment) {
         return super.addCodeFragment(codeFragment);
-    }
+    }*/
 }

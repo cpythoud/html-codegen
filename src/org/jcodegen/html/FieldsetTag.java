@@ -16,7 +16,7 @@ public class FieldsetTag extends Tag<FieldsetTag> {
         return this;
     }
 
-    @Override
+    /*@Override
     public FieldsetTag child(final Tag tag) {
         return super.child(tag);
     }
@@ -24,7 +24,7 @@ public class FieldsetTag extends Tag<FieldsetTag> {
     @Override
     public FieldsetTag addCodeFragment(final HtmlCodeFragment codeFragment) {
         return super.addCodeFragment(codeFragment);
-    }
+    }*/
 
     public FieldsetTag name(final String val) {
         return attribute("name", val);

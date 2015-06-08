@@ -20,7 +20,7 @@ public class SpanTag extends Tag<SpanTag> {
         return this;
     }
 
-    @Override
+    /*@Override
     public SpanTag child(final Tag tag) {
         return super.child(tag);
     }
@@ -28,5 +28,5 @@ public class SpanTag extends Tag<SpanTag> {
     @Override
     public SpanTag addCodeFragment(final HtmlCodeFragment codeFragment) {
         return super.addCodeFragment(codeFragment);
-    }
+    }*/
 }

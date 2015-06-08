@@ -25,7 +25,7 @@ public class ATag extends Tag<ATag> {
         return this;
     }
 
-    @Override
+    /*@Override
     public ATag child(final Tag tag) {
         return super.child(tag);
     }
@@ -33,7 +33,7 @@ public class ATag extends Tag<ATag> {
     @Override
     public ATag addCodeFragment(final HtmlCodeFragment codeFragment) {
         return super.addCodeFragment(codeFragment);
-    }
+    }*/
 
     public ATag name(final String value) {
         return attribute("name", value);

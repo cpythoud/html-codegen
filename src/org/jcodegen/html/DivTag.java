@@ -16,7 +16,7 @@ public class DivTag extends Tag<DivTag> {
         return this;
     }
 
-    @Override
+    /*@Override
     public DivTag child(final Tag tag) {
         return super.child(tag);
     }
@@ -24,5 +24,5 @@ public class DivTag extends Tag<DivTag> {
     @Override
     public DivTag addCodeFragment(final HtmlCodeFragment codeFragment) {
         return super.addCodeFragment(codeFragment);
-    }
+    }*/
 }

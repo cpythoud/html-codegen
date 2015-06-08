@@ -86,12 +86,12 @@ public abstract class Tag <T extends Tag<T>> {
     }
 
 
-    protected T child(final Tag tag) {
+    public T child(final Tag tag) {
         element.addChild(tag.element);
         return getThis();
     }
 
-    protected T addCodeFragment(final HtmlCodeFragment codeFragment) {
+    public T addCodeFragment(final HtmlCodeFragment codeFragment) {
         for (Tag tag: codeFragment.getTags())
             child(tag);
         return getThis();

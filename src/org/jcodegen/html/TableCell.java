@@ -22,7 +22,7 @@ public abstract class TableCell<T extends TableCell<T>> extends TableElement<T> 
         }
     }
 
-    @Override
+    /*@Override
     public T child(final Tag tag) {
         return super.child(tag);
     }
@@ -30,7 +30,7 @@ public abstract class TableCell<T extends TableCell<T>> extends TableElement<T> 
     @Override
     public T addCodeFragment(final HtmlCodeFragment codeFragment) {
         return super.addCodeFragment(codeFragment);
-    }
+    }*/
 
     public T abbr(final String value) {
         return attribute("abbr", value);
