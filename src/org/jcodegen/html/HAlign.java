@@ -6,6 +6,7 @@ package org.jcodegen.html;
 public enum HAlign {
     LEFT("left"),
     CENTER("center"),
+    RIGHT("right"),
     JUSTIFY("justify"),
     CHAR("char");
 
