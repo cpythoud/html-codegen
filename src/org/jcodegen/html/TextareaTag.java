@@ -48,4 +48,8 @@ public class TextareaTag extends FormElement<TextareaTag> {
     public TextareaTag readonly() {
         return attribute("readonly");
     }
+
+    public TextareaTag placeholder(final String value) {
+        return attribute("placeholder", value);
+    }
 }
