@@ -1,6 +1,7 @@
 package org.jcodegen.html;
 
 import org.jcodegen.html.xmlbase.BooleanXMLAttribute;
+import org.jcodegen.html.xmlbase.XMLAttribute;
 import org.jcodegen.html.xmlbase.XMLElement;
 import org.jcodegen.html.xmlbase.ValueXMLAttribute;
 
@@ -36,6 +37,14 @@ public abstract class Tag <T extends Tag<T>> {
     public T changeCssClasses(final String value) {
         element.replaceAttribute("class", new ValueXMLAttribute("class", value));
         return getThis();
+    }
+
+    public String getCssClasses() {
+        final XMLAttribute attribute = element.getAttribute("class");
+        if (attribute == null)
+            return "";
+
+        return ((ValueXMLAttribute) attribute).value;
     }
 
     public T title(final String value) {

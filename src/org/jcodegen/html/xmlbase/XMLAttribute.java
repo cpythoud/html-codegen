@@ -10,4 +10,6 @@ public abstract class XMLAttribute {
     public XMLAttribute(final String name) {
         this.name = name;
     }
+
+    public abstract  XMLAttribute copy();
 }

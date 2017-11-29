@@ -29,4 +29,8 @@ public class ValueXMLAttribute extends XMLAttribute {
 
         return "\"" + value + "\"";
     }
+
+    public XMLAttribute copy() {
+        return new ValueXMLAttribute(name, value, useSingleQuotes);
+    }
 }

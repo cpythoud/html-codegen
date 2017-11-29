@@ -103,6 +103,14 @@ public class XMLElement extends CodeBlock {
         addAttribute(attribute);
     }
 
+    public XMLAttribute getAttribute(final String name) {
+        for (XMLAttribute attribute: attributes)
+            if (attribute.name.equals(name))
+                return attribute.copy();
+
+        return null;
+    }
+
     public void addChild(final XMLElement child) {
         children.add(child);
     }

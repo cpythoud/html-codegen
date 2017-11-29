@@ -13,4 +13,9 @@ public class BooleanXMLAttribute extends XMLAttribute {
     public String toString() {
         return " " + name;
     }
+
+    @Override
+    public XMLAttribute copy() {
+        return new BooleanXMLAttribute(name);
+    }
 }
