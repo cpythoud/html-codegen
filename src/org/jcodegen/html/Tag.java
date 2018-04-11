@@ -5,6 +5,8 @@ import org.jcodegen.html.xmlbase.XMLAttribute;
 import org.jcodegen.html.xmlbase.XMLElement;
 import org.jcodegen.html.xmlbase.ValueXMLAttribute;
 
+import java.util.List;
+
 /**
  * ...
  */
@@ -123,5 +125,13 @@ public abstract class Tag <T extends Tag<T>> {
 
     public String getClosingTag() {
         return element.getClosingTag();
+    }
+
+
+    static <T extends Tag> T createList(T listTag, List<Object> items) {
+        for(Object item: items)
+            listTag.child(new LiTag(item.toString()));
+
+        return listTag;
     }
 }

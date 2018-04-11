@@ -2,6 +2,8 @@ package org.jcodegen.html;
 
 import org.jcodegen.html.xmlbase.XMLElement;
 
+import java.util.List;
+
 /**
  * ...
  */
@@ -16,13 +18,12 @@ public class UlTag extends Tag<UlTag> {
         return this;
     }
 
-    /*@Override
-    public UlTag child(final Tag tag) {
-        return super.child(tag);
-    }
+    public static UlTag createList(final List<Object> items) {
+        if (items == null)
+            throw new NullPointerException("Item List is null");
+        if (items.isEmpty())
+            throw new IllegalArgumentException("Item list is empty");
 
-    @Override
-    public UlTag addCodeFragment(final HtmlCodeFragment codeFragment) {
-        return super.addCodeFragment(codeFragment);
-    }*/
+        return createList(new UlTag(), items);
+    }
 }
