@@ -212,4 +212,14 @@ public class XMLElement extends CodeBlock {
 
         return "</" + name + ">";
     }
+
+    public static XMLElement getOneLiner(final String name, final String value) {
+        XMLElement oneLiner = new XMLElement(name, value);
+        oneLiner.setOnOneLine(true);
+        return oneLiner;
+    }
+
+    public static XMLElement getOneLiner(final String name, final boolean value) {
+        return getOneLiner(name, value ? "true" : "false");
+    }
 }
