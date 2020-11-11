@@ -128,6 +128,15 @@ public abstract class Tag <T extends Tag<T>> {
     }
 
 
+    public void setOnOneLine(boolean onOneLine) {
+        element.setOnOneLine(onOneLine);
+    }
+
+    public boolean isOnOneLine() {
+        return element.isOnOneLine();
+    }
+
+
     static <T extends Tag> T createList(T listTag, List<Object> items) {
         for(Object item: items)
             listTag.child(new LiTag(item.toString()));
