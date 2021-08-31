@@ -19,14 +19,4 @@ public class SpanTag extends Tag<SpanTag> {
     protected SpanTag getThis() {
         return this;
     }
-
-    /*@Override
-    public SpanTag child(final Tag tag) {
-        return super.child(tag);
-    }
-
-    @Override
-    public SpanTag addCodeFragment(final HtmlCodeFragment codeFragment) {
-        return super.addCodeFragment(codeFragment);
-    }*/
 }
