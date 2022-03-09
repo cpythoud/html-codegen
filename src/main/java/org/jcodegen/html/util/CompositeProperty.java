@@ -9,7 +9,7 @@ import java.util.Map;
 
 /**
  * This class facilitates creating tags with composite properties.
- * <br/>
+ * <p>
  * For example: &lt;li data="theme: test, source: server"&gt;
  */
 public class CompositeProperty {
