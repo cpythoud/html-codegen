@@ -4,7 +4,7 @@ package org.jcodegen.html.xmlbase;
  * ...
  */
 public class CodeBlock {
-    public CodeBlock(final int indentationLevel) {
+    public CodeBlock(int indentationLevel) {
         this.indentationLevel = indentationLevel;
     }
 
@@ -12,7 +12,7 @@ public class CodeBlock {
         return indentationLevel;
     }
 
-    public void setIndentationLevel(final int indentationLevel) {
+    public void setIndentationLevel(int indentationLevel) {
         this.indentationLevel = indentationLevel;
     }
 
@@ -20,14 +20,13 @@ public class CodeBlock {
         return getTabs(indentationLevel);
     }
 
-    public static String getTabs(final int indentationLevel) {
-        final StringBuilder buf = new StringBuilder();
+    public static String getTabs(int indentationLevel) {
+        if (indentationLevel < 0)
+            throw new IllegalArgumentException("Indentation level cannot be negative");
 
-        for (int i = 0; i < indentationLevel; i++)
-            buf.append("\t");
-
-        return buf.toString();
+        return "\t".repeat(indentationLevel);
     }
 
     private int indentationLevel;
+
 }

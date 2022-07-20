@@ -8,11 +8,11 @@ public class ValueXMLAttribute extends XMLAttribute {
     public final String value;
     public final boolean useSingleQuotes;
 
-    public ValueXMLAttribute(final String name, final String value) {
+    public ValueXMLAttribute(String name, String value) {
         this(name, value, false);
     }
 
-    public ValueXMLAttribute(final String name, final String value, final boolean useSingleQuotes) {
+    public ValueXMLAttribute(String name, String value, boolean useSingleQuotes) {
         super(name);
         this.value = value;
         this.useSingleQuotes = useSingleQuotes;
@@ -33,4 +33,5 @@ public class ValueXMLAttribute extends XMLAttribute {
     public XMLAttribute copy() {
         return new ValueXMLAttribute(name, value, useSingleQuotes);
     }
+
 }

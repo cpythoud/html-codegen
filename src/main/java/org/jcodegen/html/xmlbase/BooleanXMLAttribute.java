@@ -5,7 +5,7 @@ package org.jcodegen.html.xmlbase;
  */
 public class BooleanXMLAttribute extends XMLAttribute {
 
-    public BooleanXMLAttribute(final String name) {
+    public BooleanXMLAttribute(String name) {
         super(name);
     }
 
@@ -18,4 +18,5 @@ public class BooleanXMLAttribute extends XMLAttribute {
     public XMLAttribute copy() {
         return new BooleanXMLAttribute(name);
     }
+
 }

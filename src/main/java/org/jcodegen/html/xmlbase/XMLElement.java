@@ -11,8 +11,8 @@ public class XMLElement extends CodeBlock {
     public final String name;
     public final String body;
 
-    private final List<XMLAttribute> attributes = new ArrayList<XMLAttribute>();
-    private final List<XMLElement> children = new ArrayList<XMLElement>();
+    private final List<XMLAttribute> attributes = new ArrayList<>();
+    private final List<XMLElement> children = new ArrayList<>();
 
     private final boolean selfClosing;
 
@@ -21,35 +21,35 @@ public class XMLElement extends CodeBlock {
     public static final String CDATA = "CDATA";
 
 
-    public XMLElement(final String name) {
+    public XMLElement(String name) {
         this(name, 0);
     }
 
-    public XMLElement(final String name, final boolean selfClosing) {
+    public XMLElement(String name, boolean selfClosing) {
         this(name, 0, selfClosing);
     }
 
-    public XMLElement(final String name, final int indentation) {
+    public XMLElement(String name, int indentation) {
         this(name, null, indentation);
     }
 
-    public XMLElement(final String name, final int indentation, final boolean selfClosing) {
+    public XMLElement(String name, int indentation, boolean selfClosing) {
         this(name, null, indentation, selfClosing);
     }
 
-    public XMLElement(final String name, final String body) {
+    public XMLElement(String name, String body) {
         this(name, body, 0);
     }
 
-    public XMLElement(final String name, final String body, final boolean selfClosing) {
+    public XMLElement(String name, String body, boolean selfClosing) {
         this(name, body, 0, selfClosing);
     }
 
-    public XMLElement(final String name, final String body, final int indentation) {
+    public XMLElement(String name, String body, int indentation) {
         this(name, body, indentation, true);
     }
 
-    public XMLElement(final String name, final String body, final int indentation, final boolean selfClosing) {
+    public XMLElement(String name, String body, int indentation, boolean selfClosing) {
         super(indentation);
         this.name = name;
         this.body = body;
@@ -64,19 +64,19 @@ public class XMLElement extends CodeBlock {
         return onOneLine;
     }
 
-    public void setOnOneLine(final boolean onOneLine) {
+    public void setOnOneLine(boolean onOneLine) {
         //System.out.println("On one line : " + name);
         this.onOneLine = onOneLine;
     }
 
-    public void addAttribute(final XMLAttribute attribute) {
+    public void addAttribute(XMLAttribute attribute) {
         if (hasAttribute(attribute.name))
             throw new IllegalArgumentException("XMLAttribute already defined");
 
         attributes.add(attribute);
     }
 
-    public boolean hasAttribute(final String name) {
+    public boolean hasAttribute(String name) {
         for (XMLAttribute attribute: attributes)
             if (attribute.name.equals(name))
                 return true;
@@ -84,7 +84,7 @@ public class XMLElement extends CodeBlock {
         return false;
     }
 
-    public void removeAttribute(final String name) {
+    public void removeAttribute(String name) {
         if (!hasAttribute(name))
             throw new IllegalArgumentException("Element doesn't have attribute: " + name);
 
@@ -95,7 +95,7 @@ public class XMLElement extends CodeBlock {
             }
     }
 
-    public void replaceAttribute(final String name, final XMLAttribute attribute) {
+    public void replaceAttribute(String name, XMLAttribute attribute) {
         if (!attribute.name.equals(name))
             throw new IllegalArgumentException("Name of replacement attribute (" + attribute.name + ") does not match name of replaced attribute (" + name + ")");
 
@@ -103,7 +103,7 @@ public class XMLElement extends CodeBlock {
         addAttribute(attribute);
     }
 
-    public XMLAttribute getAttribute(final String name) {
+    public XMLAttribute getAttribute(String name) {
         for (XMLAttribute attribute: attributes)
             if (attribute.name.equals(name))
                 return attribute.copy();
@@ -111,11 +111,11 @@ public class XMLElement extends CodeBlock {
         return null;
     }
 
-    public void addChild(final XMLElement child) {
+    public void addChild(XMLElement child) {
         children.add(child);
     }
 
-    public void addChildren(final List<XMLElement> children) {
+    public void addChildren(List<XMLElement> children) {
         this.children.addAll(children);
     }
 
@@ -124,12 +124,12 @@ public class XMLElement extends CodeBlock {
         return toString(getIndentationLevel());
     }
 
-    public String toString(final int indentLevel) {
+    public String toString(int indentLevel) {
         return toString(indentLevel, onOneLine);
     }
 
-    public String toString(final int indentLevel, final boolean onOneLineInherited) {
-        final boolean onOneLineLocally;
+    public String toString(int indentLevel, boolean onOneLineInherited) {
+        boolean onOneLineLocally;
         if (this.onOneLine)
             onOneLineLocally = true;
         else
@@ -138,7 +138,7 @@ public class XMLElement extends CodeBlock {
         if (indentLevel < 0)
             throw new IllegalArgumentException("indentLevel < 0");
 
-        final StringBuilder buf = new StringBuilder();
+        StringBuilder buf = new StringBuilder();
 
         buf.append(CodeBlock.getTabs(indentLevel));
 
@@ -196,7 +196,7 @@ public class XMLElement extends CodeBlock {
         if (name.equals(CDATA))
             throw new IllegalArgumentException("No opening tag for CDATA");
 
-        final StringBuilder buf = new StringBuilder();
+        StringBuilder buf = new StringBuilder();
         buf.append("<");
         buf.append(name);
         for (XMLAttribute attribute: attributes)
@@ -213,13 +213,14 @@ public class XMLElement extends CodeBlock {
         return "</" + name + ">";
     }
 
-    public static XMLElement getOneLiner(final String name, final String value) {
+    public static XMLElement getOneLiner(String name, String value) {
         XMLElement oneLiner = new XMLElement(name, value);
         oneLiner.setOnOneLine(true);
         return oneLiner;
     }
 
-    public static XMLElement getOneLiner(final String name, final boolean value) {
+    public static XMLElement getOneLiner(String name, boolean value) {
         return getOneLiner(name, value ? "true" : "false");
     }
+
 }
