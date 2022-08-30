@@ -23,45 +23,45 @@ public abstract class Tag <T extends Tag<T>> {
         return indentationLevel;
     }
 
-    public void setIndentationLevel(final int indentationLevel) {
+    public void setIndentationLevel(int indentationLevel) {
         this.indentationLevel = indentationLevel;
     }
 
 
-    public T id(final String value) {
+    public T id(String value) {
         return attribute("id", value);
     }
 
-    public T cssClass(final String value) {
+    public T cssClass(String value) {
         return attribute("class", value);
     }
 
-    public T changeCssClasses(final String value) {
+    public T changeCssClasses(String value) {
         element.replaceAttribute("class", new ValueXMLAttribute("class", value));
         return getThis();
     }
 
     public String getCssClasses() {
-        final XMLAttribute attribute = element.getAttribute("class");
+        XMLAttribute attribute = element.getAttribute("class");
         if (attribute == null)
             return "";
 
         return ((ValueXMLAttribute) attribute).value;
     }
 
-    public T title(final String value) {
+    public T title(String value) {
         return attribute("title", value);
     }
 
-    public T style(final String value) {
+    public T style(String value) {
         return attribute("style", value);
     }
 
-    public T dir(final String value) {
+    public T dir(String value) {
         return attribute("dir", value);
     }
 
-    public T lang(final String value) {
+    public T lang(String value) {
         return attribute("lang", value);
     }
 
@@ -69,40 +69,40 @@ public abstract class Tag <T extends Tag<T>> {
         return attribute("disabled");
     }
 
-    public T tabindex(final int value) {
+    public T tabindex(int value) {
         return attribute("tabindex", Integer.toString(value));
     }
 
-    public T role(final String value) {
+    public T role(String value) {
         return attribute("role", value);
     }
 
-    public T data(final String name, final String value) {
+    public T data(String name, String value) {
         return attribute("data-" + name, value);
     }
 
-    public T attribute(final String name) {
+    public T attribute(String name) {
         element.addAttribute(new BooleanXMLAttribute(name));
         return getThis();
     }
 
-    public T attribute(final String name, final String value) {
+    public T attribute(String name, String value) {
         element.addAttribute(new ValueXMLAttribute(name, value != null ? value : ""));
         return getThis();
     }
 
-    public T singleQuotedAttribute(final String name, final String value) {
+    public T singleQuotedAttribute(String name, String value) {
         element.addAttribute(new ValueXMLAttribute(name, value != null ? value : "", true));
         return getThis();
     }
 
 
-    public T child(final Tag tag) {
+    public T child(Tag tag) {
         element.addChild(tag.element);
         return getThis();
     }
 
-    public T addCodeFragment(final HtmlCodeFragment codeFragment) {
+    public T addCodeFragment(HtmlCodeFragment codeFragment) {
         for (Tag tag: codeFragment.getTags())
             child(tag);
         return getThis();
@@ -114,7 +114,7 @@ public abstract class Tag <T extends Tag<T>> {
         return element.toString(indentationLevel);
     }
 
-    public String toString(final int indentationLevel) {
+    public String toString(int indentationLevel) {
         return element.toString(indentationLevel);
     }
 
