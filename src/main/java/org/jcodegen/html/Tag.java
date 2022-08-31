@@ -49,6 +49,14 @@ public abstract class Tag <T extends Tag<T>> {
         return ((ValueXMLAttribute) attribute).value;
     }
 
+    public T appendCssClasses(String value) {
+        String currentClasses = getCssClasses();
+        if (currentClasses.isBlank())
+            return cssClass(value);
+
+        return changeCssClasses(currentClasses + " " + value);
+    }
+
     public T title(String value) {
         return attribute("title", value);
     }
