@@ -11,7 +11,7 @@ public class TextareaTag extends FormElement<TextareaTag> {
         this("");
     }
 
-    public TextareaTag(final String content) {
+    public TextareaTag(String content) {
         element = new XMLElement("textarea", content, false);
         element.setOnOneLine(true);
     }
@@ -21,27 +21,31 @@ public class TextareaTag extends FormElement<TextareaTag> {
         return this;
     }
 
-    public TextareaTag cols(final int val) {
+    public TextareaTag cols(int val) {
         return cols(Integer.toString(val));
     }
 
-    public TextareaTag rows(final int val) {
+    public TextareaTag rows(int val) {
         return rows(Integer.toString(val));
     }
 
-    public TextareaTag cols(final String val) {
+    public TextareaTag cols(String val) {
         return attribute("cols", val);
     }
 
-    public TextareaTag rows(final String val) {
+    public TextareaTag rows(String val) {
         return attribute("rows", val);
     }
 
-    public TextareaTag maxlength(final String val) {
+    public TextareaTag maxlength(int val) {
+        return maxlength(Integer.toString(val));
+    }
+
+    public TextareaTag maxlength(String val) {
         return attribute("maxlength", val);
     }
 
-    public TextareaTag name(final String val) {
+    public TextareaTag name(String val) {
         return attribute("name", val);
     }
 
@@ -49,7 +53,7 @@ public class TextareaTag extends FormElement<TextareaTag> {
         return attribute("readonly");
     }
 
-    public TextareaTag placeholder(final String value) {
+    public TextareaTag placeholder(String value) {
         return attribute("placeholder", value);
     }
 }
