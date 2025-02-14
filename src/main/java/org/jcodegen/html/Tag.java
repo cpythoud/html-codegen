@@ -37,8 +37,11 @@ public abstract class Tag <T extends Tag<T>> {
     }
 
     public T changeCssClasses(String value) {
-        element.replaceAttribute("class", new ValueXMLAttribute("class", value));
-        return getThis();
+        if (element.hasAttribute("class")) {
+            element.replaceAttribute("class", new ValueXMLAttribute("class", value));
+            return getThis();
+        }
+        return cssClass(value);
     }
 
     public String getCssClasses() {
