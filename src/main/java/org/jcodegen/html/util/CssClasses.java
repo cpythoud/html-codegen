@@ -1,6 +1,7 @@
 package org.jcodegen.html.util;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -10,21 +11,25 @@ public class CssClasses {
 
     private final Set<String> classNames = new HashSet<String>();
 
-    public static CssClasses start(final String firstClass) {
+    public static CssClasses start(String firstClasses) {
         CssClasses cssClasses = new CssClasses();
-        return cssClasses.add(firstClass);
+        return cssClasses.add(firstClasses);
     }
 
-    public CssClasses add(final String className) {
-        if (className == null || className.isEmpty())
+    public CssClasses add(String classNames) {
+        if (classNames == null || classNames.isEmpty())
             return this;
 
-        classNames.add(className);
+        this.classNames.addAll(splitClassNames(classNames));
 
         return this;
     }
 
-    public CssClasses add(final String className, final boolean condition) {
+    private List<String> splitClassNames(String classNames) {
+        return List.of(classNames.split("\\s+"));
+    }
+
+    public CssClasses add(String className, boolean condition) {
         if (condition)
             return add(className);
 
@@ -32,7 +37,7 @@ public class CssClasses {
     }
 
     @Deprecated
-    public void addClass(final String className) {
+    public void addClass(String className) {
         classNames.add(className);
     }
 
@@ -40,12 +45,12 @@ public class CssClasses {
         if (classNames.isEmpty())
             return "";
 
-        final StringBuilder buf = new StringBuilder();
+        var classList = new StringBuilder();
         for (String className: classNames)
-            buf.append(className).append(" ");
-        buf.delete(buf.length() -1, buf.length());
+            classList.append(className).append(" ");
+        classList.delete(classList.length() -1, classList.length());
 
-        return buf.toString();
+        return classList.toString();
     }
 
     public void reset() {
@@ -57,6 +62,7 @@ public class CssClasses {
     }
 
     public boolean isEmpty() {
-        return count() == 0;
+        return classNames.isEmpty();
     }
+
 }
