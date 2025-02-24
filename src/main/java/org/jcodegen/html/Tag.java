@@ -55,7 +55,7 @@ public abstract class Tag <T extends Tag<T>> {
     public T appendCssClasses(String value) {
         String currentClasses = getCssClasses();
         if (currentClasses.isBlank())
-            return cssClass(value);
+            return changeCssClasses(value);  // * In case of an empty class field, which would trigger an exception if using .cssClasses()
 
         return changeCssClasses(currentClasses + " " + value);
     }
