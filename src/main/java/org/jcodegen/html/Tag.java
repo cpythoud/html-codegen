@@ -32,6 +32,14 @@ public abstract class Tag <T extends Tag<T>> {
         return attribute("id", value);
     }
 
+    public T changeId(String value) {
+        if (element.hasAttribute("id")) {
+            element.replaceAttribute("id", new ValueXMLAttribute("id", value));
+            return getThis();
+        }
+        return id(value);
+    }
+
     public T cssClass(String value) {
         return attribute("class", value);
     }
